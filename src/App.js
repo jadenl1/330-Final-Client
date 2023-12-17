@@ -8,12 +8,12 @@ function App() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true); // Added loading state
 
-    const [mov, setMov] = useState(null);
+    const [mov, setMov] = useState(localStorage.getItem('randomMovie'));
     const [loadingMov, setLoadingMov] = useState(true); // Added loading state
 
     useEffect(() => {
         // Fetch data from your Express API
-        axios.get('https://three30-final-server.onrender.com/GetPosts')
+        axios.get('http://localhost:4000/GetPosts')
             .then(response => {
                 setPosts(response.data);
                 console.log(response.data);
@@ -25,11 +25,14 @@ function App() {
             });
         
         // Fetch data from your Express API
-        axios.get('https://three30-final-server.onrender.com/GetRandomMovie')
+        axios.get('http://localhost:4000/GetRandomMovie')
             .then(response => {
-                setMov(response.data);
-                console.log(response.data);
-                setLoadingMov(false); // Set loading to false once data is fetched
+                const randomMovie = response.data;
+                setMov(randomMovie);
+                setLoadingMov(false);
+        
+                // Cache the random movie in localStorage
+                localStorage.setItem('randomMovie', JSON.stringify(randomMovie))
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
@@ -41,7 +44,7 @@ function App() {
     const handleReviewSubmit = async (e) => {
 
         try {
-            const response = await fetch('https://three30-final-server.onrender.com/PostReview', {
+            const response = await fetch('http://localhost:4000/PostReview', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +69,7 @@ function App() {
             <div className="screen-left">
                 <p>Current Movie</p>
                 <div className="movie">
-                        {loading ? (
+                        {loadingMov ? (
                             <p>Loading...</p>
                         ) : (
                             <>
