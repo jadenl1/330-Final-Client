@@ -1,0 +1,99 @@
+html{
+    overflow-y: hidden;
+}
+
+.App{
+    display: flex;
+}
+
+.logo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 10px 20px;
+    /* background-color: red; */
+}
+
+.screen-left, .screen-right{
+    width: 50vw;
+    height: 100vh;
+}
+
+.screen-left{
+    background-color: rgb(0, 0, 0);
+    padding-top: 30px;
+    padding: 10px 20px;
+    color: white;
+}
+
+h1{
+    font-weight: 600;
+    margin: 0;
+}
+
+.movie-img{
+    width: 40%;
+    height: auto;
+}
+
+.movie{
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+}
+
+.movie-info{
+    /* background-color: blue; */
+    margin-left: 10px;
+    position: relative;
+}
+
+.movie-desc{
+    margin-top: 10px;
+    opacity: 50%;
+    font-weight: 300;
+}
+
+.review-input{
+    width: 25vw;
+    height: 40px;
+    font-family: Inter;
+    border: 0;
+    margin: 5px 0;
+}
+
+.movie-review{
+    position: absolute;
+    bottom: 10px;
+    /* background-color: blue; */
+}
+
+
+.screen-right{
+    color: black;
+    overflow-y: scroll;
+}
+
+.forum-title{
+    margin: 10px;
+}
+
+.forum-post{
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    width: fit-content;
+    padding: 10px 40px;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+}
+
+#new-post-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    font-size: 10px;
+    opacity: 40%;
+}
