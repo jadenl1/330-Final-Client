@@ -13,7 +13,7 @@ function App() {
 
     useEffect(() => {
         // Fetch data from your Express API
-        axios.get('http://localhost:4000/GetPosts')
+        axios.get('https://three30-final-server.onrender.com/GetPosts')
             .then(response => {
                 setPosts(response.data);
                 console.log(response.data);
@@ -25,7 +25,7 @@ function App() {
             });
         
         // Fetch data from your Express API
-        axios.get('http://localhost:4000/GetRandomMovie')
+        axios.get('https://three30-final-server.onrender.com/GetRandomMovie')
             .then(response => {
                 const randomMovie = response.data;
                 setMov(randomMovie);
@@ -44,7 +44,7 @@ function App() {
     const handleReviewSubmit = async (e) => {
 
         try {
-            const response = await fetch('http://localhost:4000/PostReview', {
+            const response = await fetch('https://three30-final-server.onrender.com/PostReview', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
